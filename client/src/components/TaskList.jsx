@@ -10,7 +10,8 @@ function TaskList() {
   useEffect(() => {
     async function fetchTasks() {
       try {
-        const data = await getTasks;
+        const data = await getTasks();
+        console.log(data);
         setTasks(Array.isArray(data) ? data : data.tasks || []);
       } catch (err) {
         setError("Failed to load tasks");
