@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTasks, createTask, updateTask, deleteTask } from "./services/api";
+import TaskList from "./components/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -35,35 +36,9 @@ function App() {
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>GrindGauge — Tasks</h1>
-
-      <div>
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="New task title"
-        />
-        <button onClick={handleCreate}>Create</button>
-      </div>
-
-      <ul>
-        {tasks.map((t) => (
-          <li key={t.id}>
-            <strong>{t.title}</strong> — {t.type} — {t.status}
-            <button onClick={() => toggleDone(t)} style={{ marginLeft: 8 }}>
-              toggle done
-            </button>
-            <button
-              onClick={() => handleDelete(t.id)}
-              style={{ marginLeft: 8 }}
-            >
-              delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <TaskList />
+    </>
   );
 }
 
