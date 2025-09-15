@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/grindgauge/static/css/main.fd9b4d06.css",
+    "main.js": "/grindgauge/static/js/main.8046647b.js",
+    "static/js/453.a3c1d153.chunk.js": "/grindgauge/static/js/453.a3c1d153.chunk.js",
+    "index.html": "/grindgauge/index.html",
+    "main.fd9b4d06.css.map": "/grindgauge/static/css/main.fd9b4d06.css.map",
+    "main.8046647b.js.map": "/grindgauge/static/js/main.8046647b.js.map",
+    "453.a3c1d153.chunk.js.map": "/grindgauge/static/js/453.a3c1d153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd9b4d06.css",
+    "static/js/main.8046647b.js"
+  ]
+}
