@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
-@CrossOrigin(origins = "http://localhost:3000") // for the React server
+@CrossOrigin(origins = {"http://localhost:3000", "https://ryjtoh.github.io"})
 public class TaskController {
     private final TaskRepository taskRepository;
 

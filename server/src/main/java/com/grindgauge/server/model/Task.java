@@ -18,9 +18,11 @@ public class Task {
     private String title;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private TaskType type;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

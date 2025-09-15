@@ -1,44 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { getTasks, createTask, updateTask, deleteTask } from "./services/api";
+import React, { useState } from "react";
+import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import ProgressDashboard from "./components/ProgressDashboard";
+import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-  const [title, setTitle] = useState("");
-
-  useEffect(() => {
-    refresh();
-  }, []);
-
-  async function refresh() {
-    const t = await getTasks();
-    setTasks(t);
-  }
-
-  async function handleCreate() {
-    await createTask({ title, type: "OTHER", status: "TODO", dueDate: null });
-    setTitle("");
-    refresh();
-  }
-
-  async function handleDelete(id) {
-    await deleteTask(id);
-    refresh();
-  }
-
-  async function toggleDone(task) {
-    const updated = {
-      ...task,
-      status: task.status === "DONE" ? "TODO" : "DONE",
-    };
-    await updateTask(task.id, updated);
-    refresh();
-  }
+  const [activeTab, setActiveTab] = useState("tasks");
 
   return (
-    <>
-      <TaskList />
-    </>
+    <div className="App">
+      <header className="app-header">
+        <h1>GrindGauge</h1>
+      </header>
+      <main className="app-main">
+        <nav className="app-nav">
+          <button
+            className={`nav-button ${activeTab === "tasks" ? "active" : ""}`}
+            onClick={() => setActiveTab("tasks")}
+          >
+            My Tasks
+          </button>
+          <button
+            className={`nav-button ${activeTab === "progress" ? "active" : ""}`}
+            onClick={() => setActiveTab("progress")}
+          >
+            Progress Dashboard
+          </button>
+        </nav>
+        {activeTab === "tasks" && (
+          <>
+            <TaskForm />
+            <TaskList />
+          </>
+        )}
+        {activeTab === "progress" && <ProgressDashboard />}
+      </main>
+    </div>
   );
 }
 
